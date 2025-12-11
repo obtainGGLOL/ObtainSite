@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- SEO: title + description -->
+  <title>Obtain.gg – Exclusive Razed Bonus & Wager Leaderboard</title>
+  <meta name="description" content="Claim the best Razed casino bonus and track the wager race leaderboard with Obtain.gg. Match bonuses, free spins, wager milestones and race prizes." />
+  <meta name="keywords" content="Obtain.gg, Razed bonus, Razed casino, casino bonus, wager rewards, crypto casino, exclusive bonus, wager leaderboard" />
+  <meta name="author" content="Obtain.gg" />
+
+  <!-- Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Open Graph / Discord / Facebook -->
+  <meta property="og:title" content="Obtain.gg – Exclusive Razed Bonus & Wager Leaderboard" />
+  <meta property="og:description" content="Get the best Razed casino signup bonus and climb the wager leaderboard with Obtain.gg." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://obtain.gg/" />
+  <meta property="og:image" content="https://obtain.gg/meta-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Obtain.gg" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Obtain.gg – Exclusive Razed Bonus & Wager Leaderboard" />
+  <meta name="twitter:description" content="Claim your Razed bonus, unlock wager milestones and race up the leaderboard with code OBTAIN." />
+  <meta name="twitter:image" content="https://obtain.gg/meta-image.png" />
+
+  <!-- Favicon / app icon -->
+  <link rel="icon" type="image/png" href="obtain-logo.png" />
+  <link rel="apple-touch-icon" href="obtain-logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      /* Shared base (old names, used by original page) */
+      --bg: #101419;
+      --primary: #ef4444;
+      --primary-dark: #b91c1c;
+      --accent-strong: #fecaca;
+      --text: #ffeef0;
+      --muted: #9ca3af;
+      --border-subtle: 1px solid rgba(148, 163, 184, 0.4);
+
+      /* Extra variables from red leaderboard theme */
+      --bg-soft: #14151f;
+      --card-bg: #151621;
+      --primary-soft: #f97373;
+      --primary-light: #3b1a1a;
+      --accent-yellow: #fde68a;
+      --accent-mint: #6ee7b7;
+      --text-main: #ffeef0;
+      --text-soft: #9ca3af;
+      --border-soft: #27272f;
+      --border-strong: #ef4444;
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.95);
+      --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.98);
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px 40px;
+      background: var(--bg);
+      color: var(--text-main);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Top grid overlay – red, full-width */
+    .top-grid-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 520px;
+      pointer-events: none;
+      z-index: 1;
+      background-image:
+        radial-gradient(circle at top, rgba(15, 23, 42, 0.98) 0, transparent 65%),
+        linear-gradient(to right, rgba(127, 29, 29, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(127, 29, 29, 0.45) 1px, transparent 1px);
+      background-size:
+        100% 100%,
+        42px 42px,
+        42px 42px;
+      opacity: 0.7;
+    }
+
+    /* Background particles canvas – scrolls with page */
+    #bg-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.9;
+      mix-blend-mode: screen;
+    }
+
+    /* MAIN WRAPPER */
+    .page {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 0 26px;
+      position: relative;
+      overflow: visible;
+      z-index: 2;
+    }
+
+    .page-inner {
+      position: relative;
+      z-index: 1;
+      padding: 26px 16px 26px;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      border: none;
+    }
+
+    /* Scroll fade-in */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+      transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        filter 0.6s ease;
+      filter: saturate(0.85);
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: saturate(1);
+    }
+
+    /* HERO (from original main page but red-styled) */
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text .welcome {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .hero-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      position: relative;
+      padding: 12px 32px 14px;
+      border-radius: var(--radius-pill);
+      border: 2px solid rgba(248, 113, 113, 0.6);
+      background: radial-gradient(circle at top, rgba(24, 24, 27, 0.95), rgba(24, 24, 27, 0.75));
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95);
+    }
+
+    .hero-brand::before {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: var(--radius-pill);
+      border: 1px dashed rgba(248, 113, 113, 0.55);
+      pointer-events: none;
+    }
+
+    .brand-logo-hero {
+      height: 44px;
+      width: auto;
+      filter: drop-shadow(0 0 8px rgba(248, 113, 113, 0.8));
+    }
+
+    .hero-text .main-name {
+      position: relative;
+      display: inline-block;
+      font-family: "Poppins", system-ui;
+      font-size: 3.2rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #fef2f2;
+      text-shadow:
+        0 0 16px rgba(248, 113, 113, 0.9);
+    }
+
+    .hero-text .main-name .gg {
+      color: #fecaca;
+      text-shadow:
+        0 0 14px rgba(248, 150, 150, 1);
+    }
+
+    .hero-text .subtext {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-top: 8px;
+    }
+
+    .hero-text .subtext strong {
+      font-weight: 900;
+      color: var(--primary-soft);
+    }
+
+    .blue-accent {
+      color: #fecaca;
+    }
+
+    .hero-actions {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-arrow {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      animation: arrowBounce 1.3s ease-in-out infinite;
+      pointer-events: none;
+      margin-top: 8px;
+      font-weight: 900;
+      -webkit-text-stroke: 0.6px #fecaca;
+      color: transparent;
+      text-shadow:
+        0 0 10px rgba(248, 113, 113, 0.9),
+        0 0 18px rgba(248, 150, 150, 0.9);
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.7;
+      }
+      50% {
+        transform: translateY(4px);
+        opacity: 1;
+      }
+    }
+
+    .btn-claim {
+      padding: 11px 26px;
+      border-radius: 999px;
+      border: 1px solid #b91c1c;
+      background: linear-gradient(135deg, #b91c1c, #ef4444);
+      color: #fef2f2;
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        filter 0.18s ease,
+        letter-spacing 0.18s ease;
+    }
+
+    .btn-claim:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.96);
+      letter-spacing: 0.16em;
+    }
+
+    .btn-claim:active {
+      transform: translateY(1px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.96);
+    }
+
+    .btn-claim-icon {
+      font-size: 1.1rem;
+    }
+
+    .section-arrow-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0 18px;
+    }
+
+    .section-arrow {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      animation: arrowBounce 1.3s ease-in-out infinite;
+      pointer-events: none;
+      font-weight: 900;
+      -webkit-text-stroke: 0.7px #fecaca;
+      color: transparent;
+      text-shadow:
+        0 0 10px rgba(248, 113, 113, 0.9),
+        0 0 20px rgba(248, 150, 150, 0.9);
+    }
+
+    /* WELCOME OFFER (from original, recolored via vars) */
+    .welcome-card {
+      margin-top: 32px;
+      margin-bottom: 28px;
+    }
+
+    .welcome-offer-section {
+      margin-top: 8px;
+    }
+
+    .welcome-offer-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-shadow: 0 0 12px rgba(248, 113, 113, 0.8);
+    }
+
+    .welcome-offer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    @keyframes subtlePulse {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(248, 113, 113, 0.35);
+      }
+      50% {
+        box-shadow: 0 0 18px rgba(248, 113, 113, 0.6);
+      }
+    }
+
+    .offer-card {
+      position: relative;
+      padding: 12px 14px 10px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 0 0, rgba(248, 113, 113, 0.18), transparent 55%),
+        rgba(10, 18, 30, 0.96);
+      border: 1px solid var(--primary);
+      box-shadow: 0 0 12px rgba(185, 28, 28, 0.65);
+      overflow: hidden;
+      animation: subtlePulse 3s ease-in-out infinite;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+    }
+
+    .offer-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+      box-shadow: 0 0 10px rgba(248, 113, 113, 0.85);
+    }
+
+    .offer-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(248, 113, 113, 0.8);
+      border-color: var(--primary);
+      background:
+        radial-gradient(circle at 0 0, rgba(248, 113, 113, 0.26), transparent 55%),
+        rgba(8, 15, 26, 0.98);
+    }
+
+    .offer-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .offer-deposit {
+      font-size: 0.98rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: var(--primary-soft);
+      text-shadow: 0 0 10px rgba(248, 113, 113, 0.9);
+    }
+
+    .offer-tag {
+      font-size: 0.7rem;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 113, 113, 0.8);
+      background: rgba(8, 16, 30, 0.98);
+      color: var(--primary-soft);
+    }
+
+    .offer-main {
+      font-size: 0.86rem;
+      margin-bottom: 2px;
+    }
+
+    .offer-main strong {
+      color: #fafafa;
+    }
+
+    .offer-sub {
+      font-size: 0.84rem;
+      color: #e5e7eb;
+    }
+
+    .offer-detail {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* TOP 3 – Podium (from leaderboard) */
+    .podium-section {
+      margin-top: 10px;
+      margin-bottom: 26px;
+      position: relative;
+    }
+
+    .podium-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+      perspective: 1600px;
+    }
+
+    .podium-card {
+      position: relative;
+      padding-top: 48px;
+      transform-origin: center center;
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease-out, filter 0.25s ease;
+      cursor: default;
+    }
+
+    .podium-card.hovering {
+      filter: brightness(1.08);
+    }
+
+    .podium-glow {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120%;
+      max-width: 260px;
+      height: 120px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(127, 29, 29, 0.7), transparent 70%);
+      filter: blur(18px);
+      opacity: 0.6;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .podium-shell {
+      position: relative;
+      margin: 0 auto;
+      max-width: 260px;
+      border-radius: 22px;
+      padding: 46px 18px 18px;
+      text-align: center;
+      color: var(--text-main);
+      z-index: 1;
+      background: radial-gradient(circle at top, #18181b 0, #101419 65%);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+    }
+
+    .podium-shell::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 18px;
+      border: 1px dashed rgba(248, 113, 113, 0.35);
+      pointer-events: none;
+    }
+
+    .podium-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .podium-rank {
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: #fecaca;
+    }
+
+    .podium-player {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .podium-wager {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    .podium-prize {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--accent-yellow);
+    }
+
+    .podium-prize::before {
+      content: "Prize";
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fecaca;
+      margin-bottom: 2px;
+    }
+
+    .podium-gem {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 8px 18px rgba(0, 0, 0, 1),
+        0 0 20px rgba(248, 113, 113, 0.6);
+      border: 1px solid rgba(248, 150, 150, 0.8);
+      z-index: 3;
+      background: radial-gradient(circle at 30% 15%, #ffffff, #f97373 60%, #7f1d1d 100%);
+      transform-style: preserve-3d;
+    }
+
+    .gem-icon {
+      font-size: 1.7rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.8));
+    }
+
+    .podium-1 .podium-gem {
+      background: radial-gradient(circle at 30% 15%, #ffffff, #fde68a 55%, #b45309 100%);
+      box-shadow:
+        0 8px 18px rgba(0, 0, 0, 1),
+        0 0 22px rgba(253, 224, 71, 0.7);
+    }
+
+    .podium-2 .podium-gem {
+      background: radial-gradient(circle at 30% 15%, #ffffff, #fecaca 55%, #7f1d1d 100%);
+    }
+
+    .podium-3 .podium-gem {
+      background: radial-gradient(circle at 30% 15%, #ffffff, #fed7aa 55%, #7c2d12 100%);
+    }
+
+    .podium-1 .podium-shell {
+      border-color: #facc15;
+    }
+    .podium-1 .podium-rank {
+      color: #facc15;
+    }
+    .podium-1 .podium-prize {
+      color: #facc15;
+    }
+
+    .podium-2 .podium-shell {
+      border-color: #fecaca;
+    }
+
+    .podium-3 .podium-shell {
+      border-color: #fb923c;
+    }
+    .podium-3 .podium-prize {
+      color: #fed7aa;
+    }
+
+    .podium-floaters {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 0;
+    }
+
+    .floater {
+      position: absolute;
+      font-size: 1rem;
+      opacity: 0.8;
+      animation: floatUp 7s linear infinite;
+      filter: drop-shadow(0 0 10px rgba(248, 113, 113, 0.9));
+    }
+
+    .floater-star {
+      color: #fde68a;
+    }
+
+    .floater-planet {
+      color: #fecaca;
+    }
+
+    .floater-1 { top: 68%; left: 8%;  animation-delay: -1s; font-size: 1.1rem; }
+    .floater-2 { top: 35%; left: 20%; animation-delay: -3s; }
+    .floater-3 { top: 40%; right: 12%; animation-delay: -2s; font-size: 1.2rem; }
+    .floater-4 { top: 75%; right: 5%;  animation-delay: -4s; font-size: 0.9rem; }
+    .floater-5 { top: 20%; left: 48%; animation-delay: -5s; font-size: 0.85rem; }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(10px) scale(0.9);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.9;
+      }
+      60% {
+        transform: translateY(-24px) scale(1.03);
+      }
+      100% {
+        transform: translateY(-40px) scale(1.08);
+        opacity: 0;
+      }
+    }
+
+    /* COUNTDOWN SECTION (leaderboard) */
+    .countdown-section {
+      margin: 10px 0 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .countdown-card {
+      padding: 14px 20px 16px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, #18181b 0, #101419 65%);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.9);
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      min-width: min(100%, 480px);
+    }
+
+    .countdown-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    .countdown-label span {
+      color: var(--primary-soft);
+      font-weight: 800;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      width: 100%;
+    }
+
+    .countdown-unit {
+      text-align: center;
+      padding: 8px 6px 10px;
+      border-radius: 12px;
+      background: radial-gradient(circle at top, #1f2933 0, #101419 65%);
+      border: 1px solid rgba(127, 29, 29, 0.5);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.9);
+    }
+
+    .countdown-value {
+      font-family: "Poppins", system-ui;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .countdown-value span {
+      display: inline-block;
+      min-width: 2ch;
+      text-align: center;
+    }
+
+    .countdown-label-small {
+      margin-top: 2px;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .countdown-status {
+      font-size: 0.7rem;
+      color: var(--primary-soft);
+      text-align: center;
+      margin-top: -2px;
+    }
+
+    /* LEADERBOARD LIST (4–10) */
+    .leaderboard-section {
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .leaderboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+
+    .leaderboard-title {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary-soft);
+    }
+
+    .leaderboard-sub {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+    }
+
+    .leaderboard-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .leaderboard-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 11px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, #18181b 0, #101419 65%);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease;
+    }
+
+    .leaderboard-row:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.96);
+      background: radial-gradient(circle at top left, #1f1f27 0, #101419 65%);
+    }
+
+    .rank-pill {
+      min-width: 34px;
+      height: 34px;
+      border-radius: var(--radius-pill);
+      border: 1px solid #7f1d1d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 900;
+      background: radial-gradient(circle at top, #27272f 0, #111827 65%);
+      color: #fecaca;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    }
+
+    .rank-pill span {
+      position: relative;
+      top: 1px;
+    }
+
+    .leaderboard-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .leaderboard-player {
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .leaderboard-wager {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .leaderboard-wager strong {
+      font-weight: 800;
+      color: var(--primary-soft);
+    }
+
+    .leaderboard-prize {
+      font-size: 0.9rem;
+      font-weight: 900;
+      color: var(--accent-yellow);
+      white-space: nowrap;
+    }
+
+    /* How to join / info box (from leaderboard) */
+    .info-box {
+      margin-top: 26px;
+      text-align: center;
+      padding: 18px 16px 18px;
+      border-radius: 20px;
+      background: radial-gradient(circle at top, #18181b 0, #101419 65%);
+      border: 1px dashed rgba(248, 113, 113, 0.6);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-box::before {
+      content: "✦";
+      position: absolute;
+      font-size: 2.2rem;
+      color: rgba(248, 113, 113, 0.4);
+      top: -10px;
+      left: 16px;
+      transform: rotate(-18deg);
+      opacity: 0.7;
+    }
+
+    .info-box::after {
+      content: "✦";
+      position: absolute;
+      font-size: 2.2rem;
+      color: rgba(248, 113, 113, 0.5);
+      bottom: -10px;
+      right: 26px;
+      transform: rotate(18deg);
+      opacity: 0.8;
+    }
+
+    .info-title {
+      font-size: 1rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary-soft);
+    }
+
+    .info-sub {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+
+    .discord-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      background: linear-gradient(135deg, #b91c1c, #ef4444);
+      color: #fef2f2;
+      text-decoration: none;
+      border: 1px solid #b91c1c;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.96);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease,
+        letter-spacing 0.2s ease;
+    }
+
+    .discord-btn:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.98);
+      letter-spacing: 0.16em;
+    }
+
+    .discord-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.98);
+    }
+
+    /* WAGER MILESTONES (from original main page, recolored) */
+    .milestones-section {
+      margin-top: 36px;
+    }
+
+    .milestones-header {
+      margin-bottom: 8px;
+    }
+
+    .milestones-title {
+      font-size: 1.2rem;
+      font-weight: 750;
+      margin-bottom: 4px;
+      text-shadow: 0 0 14px rgba(248, 113, 113, 0.9);
+    }
+
+    .milestones-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .milestones-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .milestone-box {
+      position: relative;
+      padding: 9px 11px 8px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 0 0, rgba(248, 113, 113, 0.18), transparent 55%),
+        rgba(10, 18, 30, 0.96);
+      border: 1px solid var(--primary);
+      box-shadow: 0 0 12px rgba(185, 28, 28, 0.55);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .milestone-box::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(248, 113, 113, 0.25), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .milestone-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(248, 113, 113, 0.85);
+      border-color: var(--primary);
+      background:
+        radial-gradient(circle at 0 0, rgba(248, 113, 113, 0.26), transparent 55%),
+        rgba(8, 15, 26, 0.98);
+    }
+
+    .milestone-box:hover::after {
+      opacity: 1;
+    }
+
+    .milestone-tier {
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .tier-icon {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(15, 23, 42, 0.95);
+      box-shadow:
+        0 0 6px rgba(15, 23, 42, 0.9),
+        0 0 10px rgba(248, 113, 113, 0.18);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #e5e7eb;
+      overflow: visible;
+    }
+
+    .tier-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      transform: rotate(45deg);
+      box-shadow:
+        0 0 6px rgba(15, 23, 42, 0.9),
+        0 0 10px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(15, 23, 42, 0.95);
+    }
+
+    .tier-icon span:last-child {
+      position: relative;
+      top: 1px;
+    }
+
+    .tier-icon.tier-bronze .tier-dot {
+      background: linear-gradient(135deg, #fbbf24, #a16207);
+      box-shadow:
+        0 0 4px rgba(248, 191, 60, 0.8),
+        0 0 8px rgba(248, 191, 60, 0.5);
+    }
+
+    .tier-icon.tier-silver .tier-dot {
+      background: linear-gradient(135deg, #f9fafb, #9ca3af);
+      box-shadow:
+        0 0 4px rgba(209, 213, 219, 0.8),
+        0 0 8px rgba(209, 213, 219, 0.5);
+    }
+
+    .tier-icon.tier-gold .tier-dot {
+      background: linear-gradient(135deg, #facc15, #f97316);
+      box-shadow:
+        0 0 4px rgba(250, 204, 21, 0.9),
+        0 0 8px rgba(250, 204, 21, 0.6);
+    }
+
+    .tier-icon.tier-diamond .tier-dot {
+      background: linear-gradient(135deg, #ef4444, #ef4444);
+      box-shadow:
+        0 0 4px rgba(239, 68, 68, 0.9),
+        0 0 8px rgba(248, 113, 113, 0.6);
+    }
+
+    .tier-icon.tier-obsidian .tier-dot {
+      background: linear-gradient(135deg, #020617, #111827);
+      box-shadow:
+        0 0 4px rgba(15, 23, 42, 0.9),
+        0 0 8px rgba(15, 23, 42, 0.8);
+    }
+
+    .tier-icon.tier-mythic .tier-dot {
+      background: linear-gradient(135deg, #f97316, #a855f7, #22d3ee);
+      box-shadow:
+        0 0 4px rgba(249, 115, 22, 0.9),
+        0 0 10px rgba(168, 85, 247, 0.8);
+    }
+
+    .milestone-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+      position: relative;
+      flex-wrap: nowrap;
+    }
+
+    .milestone-wager {
+      font-size: 0.9rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .milestone-reward {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #e2f3ff;
+      flex: 1;
+      text-align: center;
+    }
+
+    .claim-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      box-shadow: 0 3px 0 var(--primary-dark);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      animation: claimPulse 2.1s ease-in-out infinite;
+    }
+
+    @keyframes claimPulse {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(248, 113, 113, 0.4);
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(248, 113, 113, 0.9);
+        transform: translateY(-1px) scale(1.04);
+      }
+    }
+
+    .claim-pill:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 4px 0 var(--primary-dark);
+    }
+
+    .claim-pill:active {
+      transform: translateY(0) scale(0.99);
+      box-shadow: 0 2px 0 var(--primary-dark);
+    }
+
+    .milestone-hint {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .milestones-note {
+      margin-top: 7px;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    /* HOW TO CLAIM BOX (original main page, red) */
+    .claim-box {
+      margin-top: 24px;
+      text-align: center;
+      padding: 16px 14px;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 0 0, rgba(248, 113, 113, 0.22), transparent 55%),
+        rgba(10, 18, 30, 0.96);
+      border: 1px solid var(--primary);
+      box-shadow: 0 0 14px rgba(185, 28, 28, 0.6);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .claim-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 22px rgba(248, 113, 113, 0.9);
+      border-color: var(--primary);
+      background:
+        radial-gradient(circle at 0 0, rgba(248, 113, 113, 0.28), transparent 55%),
+        rgba(8, 15, 26, 0.98);
+    }
+
+    .claim-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-shadow: 0 0 10px rgba(248, 113, 113, 0.7);
+    }
+
+    .claim-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 24px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, #18181b 0, #101419 65%);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      align-items: center;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.9);
+      border: 1px solid #27272f;
+    }
+
+    .footer-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding-left: 2px;
+    }
+
+    /* ---------- MOBILE TWEAKS ---------- */
+    @media (max-width: 900px) {
+      .page-inner {
+        padding: 22px 16px 22px;
+      }
+
+      .podium-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .podium-1 .podium-shell {
+        transform: scale(1.02);
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 20px 10px 30px;
+      }
+
+      .page-inner {
+        padding: 20px 14px 20px;
+      }
+
+      .hero-brand {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .hero-text .main-name {
+        font-size: 2.8rem;
+        letter-spacing: 0.16em;
+      }
+
+      .hero-text .subtext {
+        font-size: 0.82rem;
+      }
+
+      .btn-claim {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+
+      .welcome-offer-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .offer-card {
+        padding: 11px 12px 9px;
+      }
+
+      .leaderboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .countdown-card {
+        min-width: 100%;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text .main-name {
+        font-size: 2.3rem;
+        letter-spacing: 0.14em;
+      }
+      .hero-text .welcome {
+        font-size: 0.8rem;
+      }
+      .leaderboard-title,
+      .info-title {
+        font-size: 0.94rem;
+      }
+      .podium-shell {
+        max-width: 100%;
+      }
+      .countdown-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<canvas id="bg-particles"></canvas>
+<div class="top-grid-overlay"></div>
+
+<main class="page">
+  <div class="page-inner">
+
+    <!-- HERO -->
+    <section class="hero reveal">
+      <div class="hero-text">
+        <div class="welcome">Welcome to</div>
+
+        <div class="hero-brand">
+          <img src="obtain-logo.png" alt="Obtain logo" class="brand-logo-hero" />
+          <div class="main-name">Obtain<span class="gg">.gg</span></div>
+        </div>
+
+        <div class="subtext">
+          Make sure you’re using the code <strong>OBTAIN</strong> for the best rewards on <strong>Razed</strong>.
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="http://razed.com/signup/?raf=Obtain"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn-claim">
+          Claim Bonus <span class="btn-claim-icon">➜</span>
+        </a>
+        <div class="hero-arrow">▼</div>
+      </div>
+    </section>
+
+    <!-- WELCOME OFFER -->
+    <section class="welcome-card reveal">
+      <section class="welcome-offer-section">
+        <h3 class="welcome-offer-title">Welcome Offer Details</h3>
+
+        <div class="welcome-offer-grid">
+          <!-- Card 1 -->
+          <article class="offer-card">
+            <div class="offer-header-line">
+              <div class="offer-deposit">$100–$199 deposit</div>
+              <div class="offer-tag">Tier 1</div>
+            </div>
+            <div class="offer-main">
+              <strong>100% match bonus</strong> up to your deposit amount
+            </div>
+            <div class="offer-sub">
+              + <strong>100 Free Spins</strong> on Sugar Rush 1000
+            </div>
+            <div class="offer-detail">
+              20 spins per day for 5 days, worth $0.20 each.
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="offer-card">
+            <div class="offer-header-line">
+              <div class="offer-deposit">$200+ deposit</div>
+              <div class="offer-tag">Tier 2</div>
+            </div>
+            <div class="offer-main">
+              <strong>100% match bonus</strong> up to your deposit amount
+            </div>
+            <div class="offer-sub">
+              + <strong>150 Free Spins</strong> on Sugar Rush 1000
+            </div>
+            <div class="offer-detail">
+              30 spins per day for 5 days, worth $0.60 each.
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- ARROW BETWEEN WELCOME OFFER & LEADERBOARD -->
+    <div class="section-arrow-wrapper reveal">
+      <div class="section-arrow">▼</div>
+    </div>
+
+    <!-- TOP 3 – PODIUM CARDS -->
+    <section class="podium-section reveal">
+      <div class="podium-floaters">
+        <span class="floater floater-star   floater-1">✦</span>
+        <span class="floater floater-planet floater-2">🪐</span>
+        <span class="floater floater-star   floater-3">✧</span>
+        <span class="floater floater-planet floater-4">☄️</span>
+        <span class="floater floater-star   floater-5">✦</span>
+      </div>
+
+      <div class="podium-grid">
+
+        <!-- 2ND -->
+        <article class="podium-card podium-2" data-rank="2">
+          <div class="podium-glow"></div>
+          <div class="podium-gem">
+            <div class="gem-icon">💫</div>
+          </div>
+          <div class="podium-shell">
+            <div class="podium-content">
+              <div class="podium-rank">#2 PLACE</div>
+              <div class="podium-player" data-field="name">LuckyGrinder</div>
+              <div class="podium-wager" data-field="wager">$185,420 wagered</div>
+              <div class="podium-prize" data-field="prize">$250</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 1ST -->
+        <article class="podium-card podium-1" data-rank="1">
+          <div class="podium-glow"></div>
+          <div class="podium-gem">
+            <div class="gem-icon">🏆</div>
+          </div>
+          <div class="podium-shell">
+            <div class="podium-content">
+              <div class="podium-rank">#1 PLACE</div>
+              <div class="podium-player" data-field="name">HighRoller01</div>
+              <div class="podium-wager" data-field="wager">$256,780 wagered</div>
+              <div class="podium-prize" data-field="prize">$500</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3RD -->
+        <article class="podium-card podium-3" data-rank="3">
+          <div class="podium-glow"></div>
+          <div class="podium-gem">
+            <div class="gem-icon">⭐</div>
+          </div>
+          <div class="podium-shell">
+            <div class="podium-content">
+              <div class="podium-rank">#3 PLACE</div>
+              <div class="podium-player" data-field="name">SpinKing</div>
+              <div class="podium-wager" data-field="wager">$149,210 wagered</div>
+              <div class="podium-prize" data-field="prize">$100</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ARROW BETWEEN PODIUM & TIMER -->
+    <div class="section-arrow-wrapper reveal">
+      <div class="section-arrow">▼</div>
+    </div>
+
+    <!-- COUNTDOWN TIMER -->
+    <section class="countdown-section reveal">
+      <div class="countdown-card countdown">
+        <div class="countdown-label">
+          EVENT ENDS IN <span>RACE</span> TIME
+        </div>
+        <div class="countdown-grid">
+          <div class="countdown-unit">
+            <div class="countdown-value"><span data-count="days">00</span></div>
+            <div class="countdown-label-small">DAYS</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-value"><span data-count="hours">00</span></div>
+            <div class="countdown-label-small">HRS</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-value"><span data-count="minutes">00</span></div>
+            <div class="countdown-label-small">MINS</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-value"><span data-count="seconds">00</span></div>
+            <div class="countdown-label-small">SECS</div>
+          </div>
+        </div>
+        <div class="countdown-status" data-count-status>
+          Counting down to event end…
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD 4–10 -->
+    <section class="leaderboard-section reveal">
+      <header class="leaderboard-header">
+        <h3 class="leaderboard-title">Positions 4 – 10</h3>
+        <p class="leaderboard-sub">
+          Keep wagering on Razed with the code <strong>OBTAIN</strong> to climb the race.
+        </p>
+      </header>
+
+      <div class="leaderboard-list">
+        <!-- 4 -->
+        <div class="leaderboard-row" data-rank="4">
+          <div class="rank-pill"><span data-field="rank-label">#4</span></div>
+          <div class="leaderboard-main">
+            <div>
+              <div class="leaderboard-player" data-field="name">RazedRacer</div>
+              <div class="leaderboard-wager" data-field="wager">
+                Total wagered: <strong>$121,030</strong>
+              </div>
+            </div>
+            <div class="leaderboard-prize" data-field="prize">$50</div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="leaderboard-row" data-rank="5">
+          <div class="rank-pill"><span data-field="rank-label">#5</span></div>
+          <div class="leaderboard-main">
+            <div>
+              <div class="leaderboard-player" data-field="name">SlotStorm</div>
+              <div class="leaderboard-wager" data-field="wager">
+                Total wagered: <strong>$97,845</strong>
+              </div>
+            </div>
+            <div class="leaderboard-prize" data-field="prize">$35</div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="leaderboard-row" data-rank="6">
+          <div class="rank-pill"><span data-field="rank-label">#6</span></div>
+          <div class="leaderboard-main">
+            <div>
+              <div class="leaderboard-player" data-field="name">CryptoSpinner</div>
+              <div class="leaderboard-wager" data-field="wager">
+                Total wagered: <strong>$84,520</strong>
+              </div>
+            </div>
+            <div class="leaderboard-prize" data-field="prize">$25</div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="leaderboard-row" data-rank="7">
+          <div class="rank-pill"><span data-field="rank-label">#7</span></div>
+          <div class="leaderboard-main">
+            <div>
+              <div class="leaderboard-player" data-field="name">BonusHunter</div>
+              <div class="leaderboard-wager" data-field="wager">
+                Total wagered: <strong>$72,190</strong>
+              </div>
+            </div>
+            <div class="leaderboard-prize" data-field="prize">$20</div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="leaderboard-row" data-rank="8">
+          <div class="rank-pill"><span data-field="rank-label">#8</span></div>
+          <div class="leaderboard-main">
+            <div>
+              <div class="leaderboard-player" data-field="name">TiltProof</div>
+              <div class="leaderboard-wager" data-field="wager">
+                Total wagered: <strong>$64,310</strong>
+              </div>
+            </div>
+            <div class="leaderboard-prize" data-field="prize">$10</div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="leaderboard-row" data-rank="9">
+          <div class="rank-pill"><span data-field="rank-label">#9</span></div>
+          <div class="leaderboard-main">
+            <div>
+              <div class="leaderboard-player" data-field="name">SpinToWin</div>
+              <div class="leaderboard-wager" data-field="wager">
+                Total wagered: <strong>$58,040</strong>
+              </div>
+            </div>
+            <div class="leaderboard-prize" data-field="prize">$5</div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="leaderboard-row" data-rank="10">
+          <div class="rank-pill"><span data-field="rank-label">#10</span></div>
+          <div class="leaderboard-main">
+            <div>
+              <div class="leaderboard-player" data-field="name">LastChance</div>
+              <div class="leaderboard-wager" data-field="wager">
+                Total wagered: <strong>$50,005</strong>
+              </div>
+            </div>
+            <div class="leaderboard-prize" data-field="prize">$5</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO JOIN BOX (leaderboard) -->
+    <section class="info-box reveal">
+      <h3 class="info-title">How to Join the Wager <span class="blue-accent">Race</span></h3>
+      <p class="info-sub">
+        Sign up on Razed through Obtain.gg with the code OBTAIN, wager during the event period, and create a ticket in our Discord to
+        verify your volume and claim your prize.
+      </p>
+      <a href="https://discord.gg/Bobs"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="discord-btn">
+        Join Discord
+      </a>
+    </section>
+
+    <!-- ARROW BETWEEN LEADERBOARD & MILESTONES -->
+    <div class="section-arrow-wrapper reveal">
+      <div class="section-arrow">▼</div>
+    </div>
+
+    <!-- WAGER MILESTONES -->
+    <section class="milestones-section reveal">
+      <div class="milestones-header">
+        <h3 class="milestones-title">Wager Milestones</h3>
+        <p class="milestones-sub">
+          Wager on Razed using our link and unlock extra cash rewards from <strong>Obtain.gg</strong> as you play.
+        </p>
+      </div>
+
+      <div class="milestones-grid">
+        <!-- Base tiers -->
+        <div class="milestone-box">
+          <div class="milestone-tier">
+            <span class="tier-icon tier-bronze">
+              <span class="tier-dot"></span>
+              <span>Bronze</span>
+            </span>
+          </div>
+          <div class="milestone-row">
+            <div class="milestone-wager">$10,000 wagered</div>
+            <div class="milestone-reward">$40 reward</div>
+            <a href="https://discord.gg/Bobs" target="_blank" class="claim-pill">Claim</a>
+          </div>
+          <div class="milestone-hint">Entry-level grind, fast to reach.</div>
+        </div>
+
+        <div class="milestone-box">
+          <div class="milestone-tier">
+            <span class="tier-icon tier-silver">
+              <span class="tier-dot"></span>
+              <span>Silver</span>
+            </span>
+          </div>
+          <div class="milestone-row">
+            <div class="milestone-wager">$50,000 wagered</div>
+            <div class="milestone-reward">$100 reward</div>
+            <a href="https://discord.gg/Bobs" target="_blank" class="claim-pill">Claim</a>
+          </div>
+          <div class="milestone-hint">For consistent, active players.</div>
+        </div>
+
+        <div class="milestone-box">
+          <div class="milestone-tier">
+            <span class="tier-icon tier-gold">
+              <span class="tier-dot"></span>
+              <span>Gold</span>
+            </span>
+          </div>
+          <div class="milestone-row">
+            <div class="milestone-wager">$100,000 wagered</div>
+            <div class="milestone-reward">$150 reward</div>
+            <a href="https://discord.gg/Bobs" target="_blank" class="claim-pill">Claim</a>
+          </div>
+          <div class="milestone-hint">High-roller status unlocked.</div>
+        </div>
+
+        <!-- Higher tiers -->
+        <div class="milestone-box">
+          <div class="milestone-tier">
+            <span class="tier-icon tier-diamond">
+              <span class="tier-dot"></span>
+              <span>Diamond</span>
+            </span>
+          </div>
+          <div class="milestone-row">
+            <div class="milestone-wager">$250,000 wagered</div>
+            <div class="milestone-reward">$250 reward</div>
+            <a href="https://discord.gg/Bobs" target="_blank" class="claim-pill">Claim</a>
+          </div>
+          <div class="milestone-hint">Steady mid-high volume.</div>
+        </div>
+
+        <div class="milestone-box">
+          <div class="milestone-tier">
+            <span class="tier-icon tier-diamond">
+              <span class="tier-dot"></span>
+              <span>Diamond II</span>
+            </span>
+          </div>
+          <div class="milestone-row">
+            <div class="milestone-wager">$1,000,000 wagered</div>
+            <div class="milestone-reward">$1,000 reward</div>
+            <a href="https://discord.gg/Bobs" target="_blank" class="claim-pill">Claim</a>
+          </div>
+          <div class="milestone-hint">Top-tier VIP milestone.</div>
+        </div>
+
+        <div class="milestone-box">
+          <div class="milestone-tier">
+            <span class="tier-icon tier-diamond">
+              <span class="tier-dot"></span>
+              <span>Diamond III</span>
+            </span>
+          </div>
+          <div class="milestone-row">
+            <div class="milestone-wager">$500,000 wagered</div>
+            <div class="milestone-reward">$500 reward</div>
+            <a href="https://discord.gg/Bobs" target="_blank" class="claim-pill">Claim</a>
+          </div>
+          <div class="milestone-hint">Half-million wagered with Obtain.</div>
+        </div>
+
+        <div class="milestone-box">
+          <div class="milestone-tier">
+            <span class="tier-icon tier-diamond">
+              <span class="tier-dot"></span>
+              <span>Diamond IV</span>
+            </span>
+          </div>
+          <div class="milestone-row">
+            <div class="milestone-wager">$2,500,000 wagered</div>
+            <div class="milestone-reward">$2,500 reward</div>
+            <a href="https://discord.gg/Bobs" target="_blank" class="claim-pill">Claim</a>
+          </div>
+          <div class="milestone-hint">Serious grinder territory.</div>
+        </div>
+
+        <div class="milestone-box">
+          <div class="milestone-tier">
+            <span class="tier-icon tier-obsidian">
+              <span class="tier-dot"></span>
+              <span>Obsidian</span>
+            </span>
+          </div>
+          <div class="milestone-row">
+            <div class="milestone-wager">$5,000,000 wagered</div>
+            <div class="milestone-reward">$5,000 reward</div>
+            <a href="https://discord.gg/Bobs" target="_blank" class="claim-pill">Claim</a>
+          </div>
+          <div class="milestone-hint">Elite VIP milestone.</div>
+        </div>
+
+        <div class="milestone-box">
+          <div class="milestone-tier">
+            <span class="tier-icon tier-mythic">
+              <span class="tier-dot"></span>
+              <span>Mythic</span>
+            </span>
+          </div>
+          <div class="milestone-row">
+            <div class="milestone-wager">$15,000,000 wagered</div>
+            <div class="milestone-reward">$15,000 reward</div>
+            <a href="https://discord.gg/Bobs" target="_blank" class="claim-pill">Claim</a>
+          </div>
+          <div class="milestone-hint">Absolute top-tier Obtain.gg grinder.</div>
+        </div>
+      </div>
+
+      <p class="milestones-note">
+        Rewards are manually verified &amp; paid once your milestone is reached. Milestones stack based on your total
+        wagered volume across Razed using the Obtain.gg link.
+      </p>
+    </section>
+
+    <!-- HOW TO CLAIM YOUR WAGER REWARDS -->
+    <section class="claim-box reveal">
+      <h3 class="claim-title">How to Claim Your Wager <span class="blue-accent">Rewards</span></h3>
+      <p class="claim-sub">Create a ticket in our Discord to claim your prize once your milestone or leaderboard position is reached.</p>
+      <a href="https://discord.gg/Bobs"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="discord-btn">
+        Join Discord
+      </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="reveal">
+      <span class="footer-left">
+        <span>© 2025 Obtain.gg</span>
+      </span>
+      <span>18+ Only • Gamble responsibly</span>
+    </footer>
+
+  </div>
+</main>
+
+<script>
+  // ========================
+  // CONFIG: API INTEGRATION
+  // ========================
+  //
+  // Set this to your backend endpoint that returns leaderboard data.
+  // Expected JSON shape:
+  // [
+  //   { "rank": 1, "name": "HighRoller01", "wager": 256780, "prize": 500 },
+  //   ...
+  // ]
+  //
+  const API_URL = "https://your-api-url.com/leaderboard"; // <-- change this
+
+  // Demo fallback data (used if API fails or you keep API_URL as is)
+  const demoLeaderboardData = [
+    { rank: 1,  name: "HighRoller01",  wager: 256780, prize: 500 },
+    { rank: 2,  name: "LuckyGrinder",  wager: 185420, prize: 250 },
+    { rank: 3,  name: "SpinKing",      wager: 149210, prize: 100 },
+    { rank: 4,  name: "RazedRacer",    wager: 121030, prize: 50 },
+    { rank: 5,  name: "SlotStorm",     wager: 97845,  prize: 35 },
+    { rank: 6,  name: "CryptoSpinner", wager: 84520,  prize: 25 },
+    { rank: 7,  name: "BonusHunter",   wager: 72190,  prize: 20 },
+    { rank: 8,  name: "TiltProof",     wager: 64310,  prize: 10 },
+    { rank: 9,  name: "SpinToWin",     wager: 58040,  prize: 5 },
+    { rank: 10, name: "LastChance",    wager: 50005,  prize: 5 }
+  ];
+
+  function formatCurrency(amount) {
+    const n = Number(amount) || 0;
+    return "$" + n.toLocaleString("en-US", { maximumFractionDigits: 0 });
+  }
+
+  function renderLeaderboard(data) {
+    const sorted = [...data].sort((a, b) => a.rank - b.rank);
+
+    sorted.forEach(entry => {
+      const r = Number(entry.rank);
+      const name = entry.name ?? "";
+      const wager = Number(entry.wager) || 0;
+      const prize = Number(entry.prize) || 0;
+
+      // Update podium cards (ranks 1–3)
+      const podiumCard = document.querySelector(`.podium-card[data-rank="${r}"]`);
+      if (podiumCard) {
+        const nameEl   = podiumCard.querySelector('[data-field="name"]');
+        const wagerEl  = podiumCard.querySelector('[data-field="wager"]');
+        const prizeEl  = podiumCard.querySelector('[data-field="prize"]');
+
+        if (nameEl)  nameEl.textContent  = name;
+        if (wagerEl) wagerEl.textContent = `${formatCurrency(wager)} wagered`;
+        if (prizeEl) prizeEl.textContent = formatCurrency(prize);
+      }
+
+      // Update rows 4–10
+      const row = document.querySelector(`.leaderboard-row[data-rank="${r}"]`);
+      if (row) {
+        const rankLabelEl = row.querySelector('[data-field="rank-label"]');
+        const nameEl      = row.querySelector('[data-field="name"]');
+        const wagerEl     = row.querySelector('[data-field="wager"]');
+        const prizeEl     = row.querySelector('[data-field="prize"]');
+
+        if (rankLabelEl) rankLabelEl.textContent = `#${r}`;
+        if (nameEl)      nameEl.textContent      = name;
+        if (wagerEl) {
+          wagerEl.innerHTML = `Total wagered: <strong>${formatCurrency(wager)}</strong>`;
+        }
+        if (prizeEl)     prizeEl.textContent     = formatCurrency(prize);
+      }
+    });
+  }
+
+  async function loadLeaderboard() {
+    let data = demoLeaderboardData;
+
+    // If API_URL is left as default placeholder, just render demo data
+    if (!API_URL || API_URL.includes("your-api-url.com")) {
+      renderLeaderboard(data);
+      return;
+    }
+
+    try {
+      const res = await fetch(API_URL, { cache: "no-cache" });
+      if (!res.ok) throw new Error("Non-200 response");
+      const json = await res.json();
+
+      if (Array.isArray(json) && json.length) {
+        data = json;
+      }
+    } catch (err) {
+      console.error("Failed to load leaderboard from API, using demo data:", err);
+    }
+
+    renderLeaderboard(data);
+  }
+
+  // Scroll reveal
+  (function () {
+    const revealEls = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      revealEls.forEach(el => el.classList.add("revealed"));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  })();
+
+  // Space particles: red stars + red/orange meteors
+  const canvas = document.getElementById("bg-particles");
+  const ctx = canvas.getContext("2d");
+  let particles = [];
+  const STAR_COUNT = 140;
+  const METEOR_COUNT = 12;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = document.documentElement.scrollHeight;
+  }
+  window.addEventListener("resize", resize);
+  window.addEventListener("load", resize);
+  resize();
+
+  function drawStar(p) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    const radius = p.r;
+    const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, radius);
+    gradient.addColorStop(0, `rgba(255,255,255,${p.alpha})`);
+    gradient.addColorStop(0.35, `rgba(248,180,180,${p.alpha})`);
+    gradient.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(0, 0, radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawMeteor(p) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot);
+
+    const length = p.length;
+    const grad = ctx.createLinearGradient(-length, 0, 0, 0);
+    grad.addColorStop(0, "rgba(0,0,0,0)");
+    grad.addColorStop(0.3, `rgba(127,29,29,${p.alpha * 0.2})`);
+    grad.addColorStop(0.7, `rgba(248,113,113,${p.alpha})`);
+    grad.addColorStop(1, `rgba(255,255,255,${p.alpha})`);
+
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = p.width;
+    ctx.lineCap = "round";
+    ctx.shadowColor = "rgba(248, 113, 113, 0.95)";
+    ctx.shadowBlur = 16;
+    ctx.beginPath();
+    ctx.moveTo(-length, 0);
+    ctx.lineTo(0, 0);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function resetStar(p) {
+    p.type = "star";
+    p.x = Math.random() * canvas.width;
+    p.y = Math.random() * canvas.height;
+    p.r = 0.6 + Math.random() * 1.6;
+    p.baseAlpha = 0.25 + Math.random() * 0.6;
+    p.alpha = p.baseAlpha;
+    p.vx = (Math.random() - 0.5) * 0.02;
+    p.vy = (Math.random() - 0.5) * 0.02;
+    p.twinkleSpeed = 0.01 + Math.random() * 0.02;
+    p.twinkleOffset = Math.random() * Math.PI * 2;
+  }
+
+  function resetMeteor(p) {
+    p.type = "meteor";
+    p.x = -100 - Math.random() * 150;
+    p.y = Math.random() * canvas.height * 0.7;
+    const speed = 3 + Math.random() * 2;
+    p.vx = speed;
+    p.vy = speed * (0.03 + Math.random() * 0.07);
+    p.rot = Math.atan2(p.vy, p.vx);
+    p.length = 90 + Math.random() * 100;
+    p.width = 1 + Math.random() * 2;
+    p.alpha = 0.4 + Math.random() * 0.5;
+    p.life = 0;
+    p.maxLife = 200 + Math.random() * 120;
+  }
+
+  function updateStar(p, time) {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x < 0) p.x = canvas.width;
+    if (p.x > canvas.width) p.x = 0;
+    if (p.y < 0) p.y = canvas.height;
+    if (p.y > canvas.height) p.y = 0;
+
+    const tw = Math.sin(time * p.twinkleSpeed + p.twinkleOffset) * 0.45;
+    p.alpha = Math.max(0, Math.min(1, p.baseAlpha + tw));
+  }
+
+  function updateMeteor(p) {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.life++;
+
+    const t = p.life / p.maxLife;
+    if (t > 0.6) {
+      p.alpha = Math.max(0, p.alpha * 0.96);
+    }
+
+    if (
+      p.life > p.maxLife ||
+      p.x > canvas.width + 400 ||
+      p.y > canvas.height + 200
+    ) {
+      resetMeteor(p);
+    }
+  }
+
+  function drawParticle(p) {
+    if (p.type === "star")   drawStar(p);
+    if (p.type === "meteor") drawMeteor(p);
+  }
+
+  function createParticles() {
+    particles = [];
+    for (let i = 0; i < STAR_COUNT; i++) {
+      const p = {};
+      resetStar(p);
+      particles.push(p);
+    }
+    for (let i = 0; i < METEOR_COUNT; i++) {
+      const p = {};
+      resetMeteor(p);
+      particles.push(p);
+    }
+  }
+
+  function animateParticles(time) {
+    ctx.fillStyle = "rgba(16, 20, 25, 0.45)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => {
+      if (p.type === "star") {
+        updateStar(p, time * 0.002);
+      } else {
+        updateMeteor(p);
+      }
+      drawParticle(p);
+    });
+
+    requestAnimationFrame(animateParticles);
+  }
+
+  createParticles();
+  requestAnimationFrame(animateParticles);
+
+  // Countdown timer
+  (function () {
+    const countdownEl = document.querySelector(".countdown");
+    if (!countdownEl) return;
+
+    const spans = {
+      days: countdownEl.querySelector('[data-count="days"]'),
+      hours: countdownEl.querySelector('[data-count="hours"]'),
+      minutes: countdownEl.querySelector('[data-count="minutes"]'),
+      seconds: countdownEl.querySelector('[data-count="seconds"]'),
+    };
+    const statusEl = countdownEl.querySelector("[data-count-status]");
+
+    // Set your actual end date/time (UTC)
+    const countdownEnd = new Date("2025-12-31T23:59:59Z").getTime();
+
+    function pad(n) {
+      return n.toString().padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = countdownEnd - now;
+
+      if (distance <= 0) {
+        spans.days.textContent = "00";
+        spans.hours.textContent = "00";
+        spans.minutes.textContent = "00";
+        spans.seconds.textContent = "00";
+        if (statusEl) statusEl.textContent = "The event has ended.";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      spans.days.textContent = pad(days);
+      spans.hours.textContent = pad(hours);
+      spans.minutes.textContent = pad(minutes);
+      spans.seconds.textContent = pad(seconds);
+
+      if (statusEl) {
+        statusEl.textContent = days <= 0
+          ? "Final stretch – last orbit around the prize pool…"
+          : "Counting down to event end…";
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+
+  // Interactive tilt on top 1–3 cards
+  (function () {
+    const cards = document.querySelectorAll(".podium-card");
+
+    cards.forEach(card => {
+      let rect = null;
+
+      function updateRect() {
+        rect = card.getBoundingClientRect();
+      }
+
+      function handleMove(e) {
+        if (!rect) updateRect();
+        const x = e.clientX;
+        const y = e.clientY;
+
+        if (
+          x < rect.left || x > rect.right ||
+          y < rect.top  || y > rect.bottom
+        ) {
+          return;
+        }
+
+        const offsetX = x - rect.left;
+        const offsetY = y - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateY = ((offsetX - centerX) / centerX) * 12;
+        const rotateX = -((offsetY - centerY) / centerY) * 12;
+
+        card.classList.add("hovering");
+        card.style.transition = "transform 0.08s ease-out, filter 0.2s ease";
+        card.style.transform =
+          `translateY(-4px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
+
+      function resetTilt() {
+        card.classList.remove("hovering");
+        card.style.transition = "transform 0.18s ease-out, filter 0.2s ease";
+        card.style.transform = "translateY(0) rotateX(0) rotateY(0)";
+      }
+
+      card.addEventListener("mouseenter", () => {
+        updateRect();
+      });
+
+      card.addEventListener("mousemove", handleMove);
+      card.addEventListener("mouseleave", resetTilt);
+
+      card.addEventListener("touchstart", () => {
+        updateRect();
+        card.classList.add("hovering");
+        card.style.transform = "translateY(-4px) rotateX(6deg) rotateY(-6deg)";
+      }, { passive: true });
+
+      card.addEventListener("touchend", resetTilt, { passive: true });
+      card.addEventListener("touchcancel", resetTilt, { passive: true });
+    });
+  })();
+
+  // Load leaderboard data (API + fallback)
+  loadLeaderboard();
+</script>
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
