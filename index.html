@@ -2191,3 +2191,181 @@
 <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <title>Obtain.gg – Exclusive Razed Bonus & Wager Leaderboard</title>
+  <meta name="description" content="Claim the best Razed casino bonus and track the wager race leaderboard with Obtain.gg." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" type="image/png" href="obtain-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ALL YOUR ORIGINAL STYLES -->
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body>
+
+<canvas id="bg-particles"></canvas>
+
+<main class="page">
+  <div class="page-inner">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Obtain<span class="gg">.gg</span></h1>
+      <p>Use code <strong>OBTAIN</strong> on <strong>Razed</strong></p>
+
+      <a
+        href="https://record.razedpartners.com/_Xr4fPHKCT-3Kto_EPcZApGNd7ZgqdRLk/1/"
+        target="_blank"
+        class="btn-claim"
+      >
+        Claim Bonus →
+      </a>
+    </section>
+
+    <!-- PODIUM -->
+    <section class="podium-section">
+      <div class="podium-grid">
+
+        <article class="podium-card podium-2" data-rank="2">
+          <div class="podium-player" data-field="name">Loading…</div>
+          <div class="podium-wager" data-field="wager"></div>
+          <div class="podium-prize" data-field="prize"></div>
+        </article>
+
+        <article class="podium-card podium-1" data-rank="1">
+          <div class="podium-player" data-field="name">Loading…</div>
+          <div class="podium-wager" data-field="wager"></div>
+          <div class="podium-prize" data-field="prize"></div>
+        </article>
+
+        <article class="podium-card podium-3" data-rank="3">
+          <div class="podium-player" data-field="name">Loading…</div>
+          <div class="podium-wager" data-field="wager"></div>
+          <div class="podium-prize" data-field="prize"></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section class="leaderboard-section">
+
+      <div class="leaderboard-list">
+        <div class="leaderboard-row" data-rank="4">
+          <span data-field="rank-label">#4</span>
+          <span data-field="name"></span>
+          <span data-field="wager"></span>
+          <span data-field="prize"></span>
+        </div>
+
+        <div class="leaderboard-row" data-rank="5">
+          <span data-field="rank-label">#5</span>
+          <span data-field="name"></span>
+          <span data-field="wager"></span>
+          <span data-field="prize"></span>
+        </div>
+
+        <div class="leaderboard-row" data-rank="6">
+          <span data-field="rank-label">#6</span>
+          <span data-field="name"></span>
+          <span data-field="wager"></span>
+          <span data-field="prize"></span>
+        </div>
+
+        <div class="leaderboard-row" data-rank="7">
+          <span data-field="rank-label">#7</span>
+          <span data-field="name"></span>
+          <span data-field="wager"></span>
+          <span data-field="prize"></span>
+        </div>
+
+        <div class="leaderboard-row" data-rank="8">
+          <span data-field="rank-label">#8</span>
+          <span data-field="name"></span>
+          <span data-field="wager"></span>
+          <span data-field="prize"></span>
+        </div>
+
+        <div class="leaderboard-row" data-rank="9">
+          <span data-field="rank-label">#9</span>
+          <span data-field="name"></span>
+          <span data-field="wager"></span>
+          <span data-field="prize"></span>
+        </div>
+
+        <div class="leaderboard-row" data-rank="10">
+          <span data-field="rank-label">#10</span>
+          <span data-field="name"></span>
+          <span data-field="wager"></span>
+          <span data-field="prize"></span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  // ========================
+  // LEADERBOARD CONFIG
+  // ========================
+
+  // THIS IS THE IMPORTANT LINE
+  const API_URL = "/api/leaderboard";
+
+  function formatCurrency(amount) {
+    return "$" + Number(amount).toLocaleString("en-US");
+  }
+
+  function renderLeaderboard(data) {
+    data.forEach(entry => {
+      const r = entry.rank;
+
+      const podium = document.querySelector(`.podium-card[data-rank="${r}"]`);
+      if (podium) {
+        podium.querySelector('[data-field="name"]').textContent = entry.name;
+        podium.querySelector('[data-field="wager"]').textContent =
+          `${formatCurrency(entry.wager)} wagered`;
+        podium.querySelector('[data-field="prize"]').textContent =
+          formatCurrency(entry.prize);
+      }
+
+      const row = document.querySelector(`.leaderboard-row[data-rank="${r}"]`);
+      if (row) {
+        row.querySelector('[data-field="name"]').textContent = entry.name;
+        row.querySelector('[data-field="wager"]').textContent =
+          formatCurrency(entry.wager);
+        row.querySelector('[data-field="prize"]').textContent =
+          formatCurrency(entry.prize);
+      }
+    });
+  }
+
+  async function loadLeaderboard() {
+    try {
+      const res = await fetch(API_URL);
+      if (!res.ok) throw new Error("Failed");
+      const data = await res.json();
+      renderLeaderboard(data);
+    } catch (e) {
+      console.error("Leaderboard failed to load", e);
+    }
+  }
+
+  loadLeaderboard();
+</script>
+
+</body>
+</html>
