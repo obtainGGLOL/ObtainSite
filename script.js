@@ -1,2 +1,2 @@
-const API_URL = "https://your-api-url.com/leaderboard";
+const API_URL = "/api/leaderboard";
 // Write JavaScript here
