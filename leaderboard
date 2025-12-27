@@ -1,0 +1,96 @@
+export default async function handler(req, res) {
+  try {
+    // Secret key stored in Vercel Environment Variables
+    const key = process.env.RAZED_REFERRAL_KEY;
+    if (!key) {
+      return res.status(500).json({ error: "Missing RAZED_REFERRAL_KEY" });
+    }
+
+    // ---- Config ----
+    const REFERRAL_CODE = "Obtain";
+    const FROM = "2025-12-01 00:00:00";
+    const TO   = "2026-01-01 00:00:00";
+    const TOP  = "100";
+
+    // Build URL safely
+    const url = new URL("https://api.razed.com/player/api/v1/referrals/leaderboard");
+    url.searchParams.set("referral_code", REFERRAL_CODE);
+    url.searchParams.set("from", FROM);
+    url.searchParams.set("to", TO);
+    url.searchParams.set("top", TOP);
+
+    // Call Razed API
+    const response = await fetch(url.toString(), {
+      headers: {
+        "X-Referral-Key": eyJpdiI6IjNFMWI3UnNtZFh0cjZYT0tZeDY5VUE9PSIsInZhbHVlIjoiMThIc3VKd0tCZkdlSDdtellOWWF3UT09IiwibWFjIjoiMjIzZGFmMGE4NjFmMDBjNGFiY2M4MjQxZWM4Nzc1N2NhMjg3YzhhZGQ2Zjc5Y2RjN2YxY2ViNDM2OThkNGFjOSIsInRhZyI6IiJ9,
+        "Accept": "application/json",
+      },
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      return res.status(response.status).json({
+        error: "Razed API error",
+        status: response.status,
+        body: text,
+      });
+    }
+
+    const data = await response.json();
+
+    // Detect leaderboard array
+    const rows =
+      Array.isArray(data) ? data :
+      Array.isArray(data?.data) ? data.data :
+      Array.isArray(data?.leaderboard) ? data.leaderboard :
+      [];
+
+    // Prize mapping (matches your frontend UI)
+    const PRIZE_BY_RANK = {
+      1: 500,
+      2: 250,
+      3: 100,
+      4: 50,
+      5: 35,
+      6: 25,
+      7: 20,
+      8: 10,
+      9: 5,
+      10: 5,
+    };
+
+    // Normalize to frontend format
+    const normalized = rows.map((row, index) => {
+      const rank = Number(row.rank ?? row.position ?? index + 1);
+      const name =
+        row.username ??
+        row.name ??
+        row.player ??
+        row.player_name ??
+        "Unknown";
+
+      const wager = Number(
+        row.wager ??
+        row.wagered ??
+        row.volume ??
+        row.total_wager ??
+        0
+      );
+
+      const prize = PRIZE_BY_RANK[rank] ?? 0;
+
+      return { rank, name, wager, prize };
+    });
+
+    // Cache briefly on Vercel edge
+    res.setHeader("Cache-Control", "s-maxage=15, stale-while-revalidate=60");
+    return res.status(200).json(normalized);
+
+  } catch (err) {
+    return res.status(500).json({
+      error: "Leaderboard proxy failed",
+      message: err?.message || String(err),
+    });
+  }
+}
