@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     // Call Razed API
     const response = await fetch(url.toString(), {
       headers: {
-        "X-Referral-Key": key,
+        "X-Referral-Key": eyJpdiI6IjNFMWI3UnNtZFh0cjZYT0tZeDY5VUE9PSIsInZhbHVlIjoiMThIc3VKd0tCZkdlSDdtellOWWF3UT09IiwibWFjIjoiMjIzZGFmMGE4NjFmMDBjNGFiY2M4MjQxZWM4Nzc1N2NhMjg3YzhhZGQ2Zjc5Y2RjN2YxY2ViNDM2OThkNGFjOSIsInRhZyI6IiJ9,
         "Accept": "application/json",
       },
       cache: "no-store",
